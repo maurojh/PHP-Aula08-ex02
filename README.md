@@ -1,10 +1,9 @@
-"# PHP-Aula08-ex02" 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-28 seg 19:10 -->
+<!-- 2019-10-28 seg 19:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -233,18 +232,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaa959da">1. Upload de imagem</a>
+<li><a href="#org4692e6d">1. Upload de imagem</a>
 <ul>
-<li><a href="#org97a2db8">1.1. Exercício 1</a></li>
-<li><a href="#orgd1eb916">1.2. Exercício 2</a></li>
+<li><a href="#org5f42ef2">1.1. Exercício 1</a></li>
+<li><a href="#org35abe6d">1.2. Exercício 2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaa959da" class="outline-2">
-<h2 id="orgaa959da"><span class="section-number-2">1</span> Upload de imagem</h2>
+<div id="outline-container-org4692e6d" class="outline-2">
+<h2 id="org4692e6d"><span class="section-number-2">1</span> Upload de imagem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Para enviar um arquivo de imagem o formulário deve ser como o seguinte:
@@ -290,8 +289,8 @@ if (move_uploaded_file($_FILES["arquivo"]["tmp_name"], $destino)) {
 </pre>
 </div>
 
-<div id="outline-container-org97a2db8" class="outline-3">
-<h3 id="org97a2db8"><span class="section-number-3">1.1</span> Exercício 1</h3>
+<div id="outline-container-org5f42ef2" class="outline-3">
+<h3 id="org5f42ef2"><span class="section-number-3">1.1</span> Exercício 1</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Crie uma página que recebe um arquivo de imagem e salva na pasta img incluindo a data no formato ANOMESDIAHORAMINUTO no comeco do nome do arquivo.
@@ -303,8 +302,8 @@ Crie uma página que recebe um arquivo de imagem e salva na pasta img incluindo a
 </div>
 </div>
 
-<div id="outline-container-orgd1eb916" class="outline-3">
-<h3 id="orgd1eb916"><span class="section-number-3">1.2</span> Exercício 2</h3>
+<div id="outline-container-org35abe6d" class="outline-3">
+<h3 id="org35abe6d"><span class="section-number-3">1.2</span> Exercício 2</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Crie um sistema de chat utilizando as tabelas disponíveis no link abaixo:
@@ -326,6 +325,41 @@ Após efetuar o login, o usuário pode criar uma sala, ou entrar em uma sala exist
 Dentro da sala o usuário deve ver todas as mensagem e pode enviar uma mensagem ou imagem para a sala.
 </p>
 
+<p>
+SQL das tabelas:
+</p>
+
+<pre class="example">
+CREATE TABLE `Usuarios` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`nome` varchar(255) NOT NULL,
+	`email` varchar(255) NOT NULL,
+	`senha` varchar(64) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Sala` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`nome` varchar(255) NOT NULL,
+	`dono` INT(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Mensagens` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`remetente` INT NOT NULL,
+	`mensagem` varchar(255) NOT NULL,
+	`sala` INT(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `Sala` ADD CONSTRAINT `Sala_fk0` FOREIGN KEY (`dono`) REFERENCES `Usuarios`(`id`);
+
+ALTER TABLE `Mensagens` ADD CONSTRAINT `Mensagens_fk0` FOREIGN KEY (`remetente`) REFERENCES `Usuarios`(`id`);
+
+ALTER TABLE `Mensagens` ADD CONSTRAINT `Mensagens_fk1` FOREIGN KEY (`sala`) REFERENCES `Sala`(`id`);
+</pre>
+
 <pre class="example">
 
 </pre>
@@ -334,7 +368,7 @@ Dentro da sala o usuário deve ver todas as mensagem e pode enviar uma mensagem o
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-10-28 seg 19:10</p>
+<p class="date">Created: 2019-10-28 seg 19:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
