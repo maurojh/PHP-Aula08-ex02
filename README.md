@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-28 seg 19:20 -->
+<!-- 2019-10-29 ter 14:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -232,21 +232,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4692e6d">1. Upload de imagem</a>
+<li><a href="#org63083ba">1. Upload de imagem</a>
 <ul>
-<li><a href="#org5f42ef2">1.1. ExercÌcio 1</a></li>
-<li><a href="#org35abe6d">1.2. ExercÌcio 2</a></li>
+<li><a href="#orgaa9b70f">1.1. Exerc√≠cio 1</a></li>
+<li><a href="#orgb1d2cc0">1.2. Verificar o tipo de arquivo</a></li>
+<li><a href="#org0cd4487">1.3. Exerc√≠cio 2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4692e6d" class="outline-2">
-<h2 id="org4692e6d"><span class="section-number-2">1</span> Upload de imagem</h2>
+<div id="outline-container-org63083ba" class="outline-2">
+<h2 id="org63083ba"><span class="section-number-2">1</span> Upload de imagem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Para enviar um arquivo de imagem o formul·rio deve ser como o seguinte:
+Para enviar um arquivo de imagem o formul√°rio deve ser como o seguinte:
 </p>
 
 <pre class="example">
@@ -258,17 +259,17 @@ Para enviar um arquivo de imagem o formul·rio deve ser como o seguinte:
 </pre>
 
 <p>
-O mÈtodo de envio deve ser <b>post</b>.
-Deve conter o atributo <b>enctype="multipart/form-data"</b> que especifica o tipo do conte˙do submetido.
+O m√©todo de envio deve ser <b>post</b>.
+Deve conter o atributo <b>enctype="multipart/form-data"</b> que especifica o tipo do conte√∫do submetido.
 </p>
 
 <p>
-A p·gina que recebe os dados deve fazer o seguinte:
+A p√°gina que recebe os dados deve fazer o seguinte:
 </p>
 
 <ol class="org-ol">
 <li>Ajustar o destino do arquivo.</li>
-<li>Usar a funÁ„o move_uploaded_file() para copiar o arquivo da pasta tempor·ria para a pasta desejada.</li>
+<li>Usar a fun√ß√£o move_uploaded_file() para copiar o arquivo da pasta tempor√°ria para a pasta desejada.</li>
 </ol>
 
 <p>
@@ -289,86 +290,49 @@ if (move_uploaded_file($_FILES["arquivo"]["tmp_name"], $destino)) {
 </pre>
 </div>
 
-<div id="outline-container-org5f42ef2" class="outline-3">
-<h3 id="org5f42ef2"><span class="section-number-3">1.1</span> ExercÌcio 1</h3>
+<div id="outline-container-orgaa9b70f" class="outline-3">
+<h3 id="orgaa9b70f"><span class="section-number-3">1.1</span> Exerc√≠cio 1</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-Crie uma p·gina que recebe um arquivo de imagem e salva na pasta img incluindo a data no formato ANOMESDIAHORAMINUTO no comeco do nome do arquivo.
+Crie uma p√°gina que recebe um arquivo de imagem e salva na pasta img incluindo a data no formato ANOMESDIAHORAMINUTO no comeco do nome do arquivo.
 </p>
 
 <p>
-<b>Exemplo</b>: Usu·rio envia foto.jpg ‡s 18:45 de 17/10/2019, a imagem fica na pasta img com nome 201910171845foto.jpg.
+<b>Exemplo</b>: Usu√°rio envia foto.jpg √†s 18:45 de 17/10/2019, a imagem fica na pasta img com nome 201910171845foto.jpg.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org35abe6d" class="outline-3">
-<h3 id="org35abe6d"><span class="section-number-3">1.2</span> ExercÌcio 2</h3>
+<div id="outline-container-orgb1d2cc0" class="outline-3">
+<h3 id="orgb1d2cc0"><span class="section-number-3">1.2</span> Verificar o tipo de arquivo</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-Crie um sistema de chat utilizando as tabelas disponÌveis no link abaixo:
-</p>
-
-<p>
-<a href="https://dbdesigner.page.link/7vT7">https://dbdesigner.page.link/7vT7</a>
-</p>
-
-<p>
-O usu·rio deve preencher o cadastro.
-</p>
-
-<p>
-ApÛs efetuar o login, o usu·rio pode criar uma sala, ou entrar em uma sala existente.
-</p>
-
-<p>
-Dentro da sala o usu·rio deve ver todas as mensagem e pode enviar uma mensagem ou imagem para a sala.
-</p>
-
-<p>
-SQL das tabelas:
+Para verificar o tipo do arquivo usamos a fun√ß√£o <b>pathinfo()</b> para retirar apenas a extens√£o:
 </p>
 
 <pre class="example">
-CREATE TABLE `Usuarios` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`nome` varchar(255) NOT NULL,
-	`email` varchar(255) NOT NULL,
-	`senha` varchar(64) NOT NULL,
-	PRIMARY KEY (`id`)
-);
+$tipo = strtolower(pathinfo($destino,PATHINFO_EXTENSION));
 
-CREATE TABLE `Sala` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`nome` varchar(255) NOT NULL,
-	`dono` INT(255) NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `Mensagens` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`remetente` INT NOT NULL,
-	`mensagem` varchar(255) NOT NULL,
-	`sala` INT(255) NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-ALTER TABLE `Sala` ADD CONSTRAINT `Sala_fk0` FOREIGN KEY (`dono`) REFERENCES `Usuarios`(`id`);
-
-ALTER TABLE `Mensagens` ADD CONSTRAINT `Mensagens_fk0` FOREIGN KEY (`remetente`) REFERENCES `Usuarios`(`id`);
-
-ALTER TABLE `Mensagens` ADD CONSTRAINT `Mensagens_fk1` FOREIGN KEY (`sala`) REFERENCES `Sala`(`id`);
+if($tipo != "jpg" ) {
+    echo "Aceitamos apenas JPG, desculpe";
+    die("Erro, a p√°gina morreu aqui mesmo!");
+}
 </pre>
+</div>
+</div>
 
-<pre class="example">
-
-</pre>
+<div id="outline-container-org0cd4487" class="outline-3">
+<h3 id="org0cd4487"><span class="section-number-3">1.3</span> Exerc√≠cio 2</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Acrescente no c√≥digo acima outras quatro extens√µes de arquivo de imagem, por exemplo PNG.
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-10-28 seg 19:20</p>
+<p class="date">Created: 2019-10-29 ter 14:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
