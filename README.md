@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-29 ter 14:53 -->
+<!-- 2019-10-29 ter 16:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -232,19 +232,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org63083ba">1. Upload de imagem</a>
+<li><a href="#org0ebd006">1. Upload de imagem</a>
 <ul>
-<li><a href="#orgaa9b70f">1.1. Exercício 1</a></li>
-<li><a href="#orgb1d2cc0">1.2. Verificar o tipo de arquivo</a></li>
-<li><a href="#org0cd4487">1.3. Exercício 2</a></li>
+<li><a href="#orgda49ead">1.1. Exercício 1</a></li>
+<li><a href="#orgc26d5fc">1.2. Verificar o tipo de arquivo</a></li>
+<li><a href="#org1ef2d3e">1.3. Exercício 2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org63083ba" class="outline-2">
-<h2 id="org63083ba"><span class="section-number-2">1</span> Upload de imagem</h2>
+<div id="outline-container-org0ebd006" class="outline-2">
+<h2 id="org0ebd006"><span class="section-number-2">1</span> Upload de imagem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Para enviar um arquivo de imagem o formulário deve ser como o seguinte:
@@ -290,21 +290,19 @@ if (move_uploaded_file($_FILES["arquivo"]["tmp_name"], $destino)) {
 </pre>
 </div>
 
-<div id="outline-container-orgaa9b70f" class="outline-3">
-<h3 id="orgaa9b70f"><span class="section-number-3">1.1</span> Exercício 1</h3>
+<div id="outline-container-orgda49ead" class="outline-3">
+<h3 id="orgda49ead"><span class="section-number-3">1.1</span> Exercício 1</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-Crie uma página que recebe um arquivo de imagem e salva na pasta img incluindo a data no formato ANOMESDIAHORAMINUTO no comeco do nome do arquivo.
-</p>
-
-<p>
-<b>Exemplo</b>: Usuário envia foto.jpg às 18:45 de 17/10/2019, a imagem fica na pasta img com nome 201910171845foto.jpg.
+Altere o código da página recebe.php para enviar para outro diretório com nome diferente de <b>img</b>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb1d2cc0" class="outline-3">
-<h3 id="orgb1d2cc0"><span class="section-number-3">1.2</span> Verificar o tipo de arquivo</h3>
+
+
+<div id="outline-container-orgc26d5fc" class="outline-3">
+<h3 id="orgc26d5fc"><span class="section-number-3">1.2</span> Verificar o tipo de arquivo</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Para verificar o tipo do arquivo usamos a função <b>pathinfo()</b> para retirar apenas a extensão:
@@ -321,18 +319,19 @@ if($tipo != "jpg" ) {
 </div>
 </div>
 
-<div id="outline-container-org0cd4487" class="outline-3">
-<h3 id="org0cd4487"><span class="section-number-3">1.3</span> Exercício 2</h3>
+
+<div id="outline-container-org1ef2d3e" class="outline-3">
+<h3 id="org1ef2d3e"><span class="section-number-3">1.3</span> Exercício 2</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Acrescente no código acima outras quatro extensões de arquivo de imagem, por exemplo PNG.
+Acrescente no código acima outras extensões de arquivo de imagem. PNG por exemplo.
 </p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-10-29 ter 14:53</p>
+<p class="date">Created: 2019-10-29 ter 16:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
